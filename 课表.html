@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrap">
+    <a href="./Home.html">返回首页</a>
+  </div>  
+  <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>课程表</title>
+<style>
+
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  .rest-day {
+    background-color: #e9ecef;
+  }
+</style>
+</head>
+<body>
+
+<h2>课程表</h2>
+
+<table>
+  <tr>
+    <th>时间/星期</th>
+    <th>周一</th>
+    <th>周二</th>
+    <th>周三</th>
+    <th>周四</th>
+    <th>周五</th>
+    <th>周六</th>
+    <th>周日</th>
+  </tr>
+  <tr>
+    <td>上午第一节</td>
+    <td></td>
+    <td>英语</td>
+    <td>航天产品</td>
+    <td></td>
+    <td>数值分析</td>
+    <td class="rest-day"></td>
+    <td class="rest-day"></td>
+  </tr>
+  <tr>
+    <td>上午第二节</td>
+    <td></td>
+    <td>应用数理统计</td>
+    <td>数值分析</td>
+    <td>数理统计</td>
+    <td>英语</td>
+    <td class="rest-day"></td>
+    <td class="rest-day"></td>
+  </tr>
+  <tr>
+    <td>下午第一节</td>
+    <td>航天文化与航天精神</td>
+    <td>现代测试技术</td>
+    <td></td>
+    <td>思修</td>
+    <td>航天产品</td>
+    <td class="rest-day"></td>
+    <td class="rest-day"></td>
+  </tr>
+  <tr>
+    <td>下午第二节</td>
+    <td></td>
+    <td>思修</td>
+    <td></td>
+    <td>现代测试技术</td>
+    
+    <td class="rest-day"></td>
+    <td class="rest-day"></td>
+  </tr>
+</table>
+
+<script>
+// JavaScript 代码，用于动态添加课程
+function addCourse(day, period, course) {
+  var table = document.querySelector('table');
+  var rows = table.rows;
+  for (var i = 1; i < rows.length; i++) {
+    if (rows[i].cells[0].textContent.includes(day)) {
+      var cell = rows[i].cells[period === 1 ? period + 1 : period + 2];
+      var courseList = cell.textContent.split('\n');
+      if (courseList.indexOf(course) === -1) {
+        courseList.push(course);
+        cell.textContent = courseList.join('\n');
+      }
+      break;
+    }
+  }
+}
+
+// 示例：添加课程
+addCourse('周一', 1, '航天文化与航天精神');
+addCourse('周二', 1, '英语');
+addCourse('周二', 2, '应用数理统计');
+addCourse('周二', 3, '现代测试技术');
+addCourse('周二', 4, '思修');
+addCourse('周三', 1, '航天产品');
+addCourse('周三', 2, '数值分析');
+addCourse('周四', 2, '数理统计');
+addCourse('周四', 3, '思修');
+addCourse('周四', 4, '现代测试技术');
+addCourse('周五', 1, '数值分析');
+addCourse('周五', 2, '英语');
+addCourse('周五', 3, '航天产品');
+</script>
+
+</body>
+</html>
+</body>
+</html>
